@@ -78,7 +78,7 @@ uninstall:
 
 COREFILES := core vgcore*
 clean:
-	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) .ktags
+	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) __ktags
 
 -include $(DEPS)
 

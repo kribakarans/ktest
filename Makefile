@@ -40,7 +40,7 @@ dist:
 
 distclean cfgclean: clean
 	rm -rf $(PKGBUILDDIR) $(DISTDIR)/*
-	rm -rf $(HOME)/.termux-build/$(ELFNAME) .ktags
+	rm -rf $(HOME)/.termux-build/$(ELFNAME) __ktags
 
 backup: distclean
 	@printf "Archiving ... $(BOLD)$(PACKAGE) v$(VERSION)"
@@ -54,3 +54,4 @@ backup: distclean
 
 .PHONY: all backup build clean dist distclean install uninstall
 
+#EOF
