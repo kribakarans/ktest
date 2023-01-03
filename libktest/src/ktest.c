@@ -77,7 +77,10 @@ void ktest_worker(const char *name, void (*test_function)(void))
 
 void ktest_report(void)
 {
-	printf(BBLU "KTEST REPORT: " BLU "Total: " RST "%d" GRN " Passed: " RST "%d" RED " Failed: " RST "%d\n\n", test.ntest, test.npass, test.nfails);
+	printf(BBLU "KTEST REPORT:" RST "\n");
+	printf(BLU  "    Total  : " RST "%d\n", test.ntest);
+	printf(GRN  "    Passed : " RST "%d\n", test.npass);
+	printf(RED  "    Failed : " RST "%d\n", test.nfails);
 
 	return;
 }

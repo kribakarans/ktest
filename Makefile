@@ -5,13 +5,13 @@
 #                                             #
 #*********************************************#
 
-PACKAGE      :=  $(shell grep PACKAGE_NAME     lib/include/version.h | cut -d '"' -f 2)
-ELFNAME      :=  $(shell grep PACKAGE_BINARY   lib/include/version.h | cut -d '"' -f 2)
-RELEASE      :=  $(shell grep PACKAGE_RELEASE  lib/include/version.h | cut -d '"' -f 2)
-REVISION     :=  $(shell grep PACKAGE_REVISION lib/include/version.h | cut -d '"' -f 2)
+PACKAGE      :=  $(shell grep PACKAGE_NAME     libktest/include/version.h | cut -d '"' -f 2)
+ELFNAME      :=  $(shell grep PACKAGE_BINARY   libktest/include/version.h | cut -d '"' -f 2)
+RELEASE      :=  $(shell grep PACKAGE_RELEASE  libktest/include/version.h | cut -d '"' -f 2)
+REVISION     :=  $(shell grep PACKAGE_REVISION libktest/include/version.h | cut -d '"' -f 2)
 VERSION      :=  $(RELEASE)-$(REVISION)
 
-SUBDIRS      :=  lib bin
+SUBDIRS      :=  libktest
 
 DISTDIR      :=  dist
 BUILDDIR     :=  build

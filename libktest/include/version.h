@@ -5,7 +5,7 @@
 #define PACKAGE_NAME     "Ktest"
 #define PACKAGE_BINARY   "ktest"
 #define PACKAGE_RELEASE  "1.0"
-#define PACKAGE_REVISION "0"
+#define PACKAGE_REVISION "a"
 
 #endif
 

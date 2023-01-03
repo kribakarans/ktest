@@ -55,7 +55,7 @@ OBJDIR := obj
 LIBDIR := libs
 
 # Source files
-SRCS := $(SRCDIR)/main.c $(SRCDIR)/ktest.c
+SRCS := $(SRCDIR)/ktest.c
 
 # Object files
 OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
@@ -108,9 +108,10 @@ uninstall:
 	rm -f $(DESTDIR)$(SYSLIBDIR)/$(LIBSO)*
 	rm -f $(DESTDIR)$(SYSLIBDIR)/$(LIBAR)
 
+KTAGSDIR  := __ktags
 COREFILES := core vgcore*
 clean:
-	rm -rf $(OBJDIR) $(LIBDIR)/$(LIBAR) $(LIBDIR)/$(LIBSO)* __ktags
+	rm -rf $(OBJDIR) $(LIBDIR)/$(LIBAR) $(LIBDIR)/$(LIBSO)* $(KTAGSDIR)
 
 -include $(DEPS)
 

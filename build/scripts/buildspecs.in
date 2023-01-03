@@ -2,8 +2,8 @@
 
 PACKAGE=Ktest
 ELFNAME=ktest
-RELEASE=$(grep  PACKAGE_RELEASE  lib/include/version.h | cut -d '"' -f 2)
-REVISION=$(grep PACKAGE_REVISION lib/include/version.h | cut -d '"' -f 2)
+RELEASE=$(grep  PACKAGE_RELEASE  libktest/include/version.h | cut -d '"' -f 2)
+REVISION=$(grep PACKAGE_REVISION libktest/include/version.h | cut -d '"' -f 2)
 VERSION=${RELEASE}-${REVISION}
 TERMUX_DEPENDS=
 TERMUX_PKGNAME=$ELFNAME

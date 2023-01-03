@@ -33,7 +33,7 @@ BOLD := $(shell tput bold)
 NC   := $(shell tput sgr0)
 
 # C sources
-SRCS := ./main.c ./ktest.c
+SRCS := ./test.c ./ktest.c
 
 # Object files
 OBJS := $(SRCS:%.c=$(OBJDIR)/%.o)
@@ -58,9 +58,10 @@ $(OBJDIR)/%.o : %.c
 	@mkdir -p $(@D)
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(WFLAGS) $(INCLUDE) -c $< -o $@
 
+KTAGSDIR  := __ktags
 COREFILES := core vgcore*
 clean:
-	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) __ktags
+	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) $(KTAGSDIR)
 
 ktags:
 	ktags
@@ -70,4 +71,3 @@ ktags:
 .PHONY: all clean install uninstall
 
 #EOMake
-

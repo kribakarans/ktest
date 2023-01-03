@@ -6,12 +6,6 @@ Build-Depends: debhelper (>=11~)
 Standards-Version: 4.1.4
 Homepage: https://github.com/kribakarans/ktest
 
-Package: ktest
-Architecture: any
-Multi-Arch: foreign
-Depends: libktest (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
-Description: Ktest: Simple C/C++ unit-test framework written in C language
-
 Package: libktest
 Section: libs
 Architecture: any

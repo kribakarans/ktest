@@ -12,7 +12,7 @@ TARGET   :=  $(ELFNAME).out
 PREFIX   ?= /usr/local
 SRCDIR   :=  src
 OBJDIR   :=  obj
-LIBDIR   :=  libs
+LIBDIR   :=  ../libktest
 
 CC       ?=  gcc
 CFLAGS   := -g -O3 -MMD -fPIE
@@ -23,9 +23,9 @@ WFLAGS   += -Wno-pedantic -Wtraditional-conversion -Wstrict-prototypes \
             -Wtrampolines -Walloca -Wvla -Warray-bounds=2 -Wimplicit-fallthrough=3 -Wshift-overflow=2 -Wcast-qual \
             -Wstringop-overflow=4 -Wconversion -Wint-conversion -Wlogical-op -Wduplicated-cond -Wduplicated-branches \
             -Wformat-signedness -Wshadow -Wstrict-overflow=4 -Wundef -Wswitch-default -Wswitch-enum -Wstack-usage=4096 -Wcast-align=strict
-INCLUDE  += -I../lib/src
+INCLUDE  += -I$(LIBDIR)/src
 LDFLAGS  += -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack -Wl,-z,separate-code -Wl,-Bsymbolic-functions
-LDFLAGS  += -Wl,-rpath=$(DEST)$(PREFIX)/lib -L../lib/$(LIBDIR)
+LDFLAGS  += -Wl,-rpath=$(LIBDIR)/libs -L$(LIBDIR)/libs
 LDLIBS   += -lktest
 
 FSTACK  := -fstack-protector-all -fstack-protector-strong -fstack-clash-protection
@@ -76,9 +76,10 @@ install:
 uninstall:
 	rm -f $(DESTDIR)$(SYSBINDIR)/$(ELFNAME)
 
+KTAGSDIR  := __ktags
 COREFILES := core vgcore*
 clean:
-	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) __ktags
+	rm -rf $(TARGET) $(OBJDIR) $(COREFILES) $(KTAGSDIR)
 
 -include $(DEPS)
 

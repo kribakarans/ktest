@@ -54,7 +54,7 @@ struct {
 #define ASSERT(STMT, HOOK_TAG, HOOK_DATA)                                                            \
     do {                                                                                             \
         int ktretval = -1;                                                                           \
-        printf(BBLU "Case %d:" YLW " %s\n" RST, ++(test.ntest), #STMT);                              \
+        printf(BBLU "Case %d:" YLW " %s" RST "\n", ++(test.ntest), #STMT);                           \
         ktest_register_hook(__FILE__, __LINE__, HOOK_TAG, (uint64_t) HOOK_DATA);                     \
         ktretval = ((STMT) ? PASS : FAIL); /* calling user function */                               \
         if (ktretval == FAIL) {                                                                      \
@@ -70,7 +70,7 @@ struct {
 #define ASSERT_INT(EXPT, STMT, HOOK_TAG, HOOK_DATA)                                                  \
     do {                                                                                             \
         int ktretval = -1, ACT = -1;                                                                 \
-        printf(BBLU "Case %d:" YLW " %s\n" RST, ++(test.ntest), #STMT);                              \
+        printf(BBLU "Case %d:" YLW " %s" RST "\n", ++(test.ntest), #STMT);                           \
         ktest_register_hook(__FILE__, __LINE__, HOOK_TAG, (uint64_t) HOOK_DATA);                     \
         ACT = (STMT); /* calling user function */                                                    \
         ktretval = ((EXPT == ACT) ? PASS : FAIL); /* calling user function */                        \
@@ -88,7 +88,7 @@ struct {
 #define ASSERT_STRING(EXPT, STMT, HOOK_TAG, HOOK_DATA)                                               \
     do {                                                                                             \
         int ktretval = -1, ACT = -1;                                                                 \
-        printf(BBLU "Case %d:" YLW " %s\n" RST, ++(test.ntest), #STMT);                              \
+        printf(BBLU "Case %d:" YLW " %s" RST "\n", ++(test.ntest), #STMT);                           \
         ktest_register_hook(__FILE__, __LINE__, HOOK_TAG, (uint64_t) HOOK_DATA);                     \
         ACT = (strcmp((EXPT), (STMT)) == 0); /* calling user function */                             \
         ktretval = (ACT ? PASS : FAIL);                                                              \
@@ -106,7 +106,7 @@ struct {
 #define EXPECT_TYPE(EXPT, STMT, HOOK_TAG, HOOK_DATA)                                                 \
     do {                                                                                             \
         int ktretval = -1, ACT = -1;                                                                 \
-        printf(BBLU "Dev Case %d:" YLW " %s\n" RST, ++(test.ntest), #STMT);                          \
+        printf(BBLU "Case %d:" YLW " %s" RST "\n", ++(test.ntest), #STMT);                           \
         ktest_register_hook(__FILE__, __LINE__, HOOK_TAG, (uint64_t) HOOK_DATA);                     \
         ACT = (STMT); /* calling user function */                                                    \
         ktretval = ((EXPT == ACT) ? PASS : FAIL); /* calling user function */                        \
@@ -191,4 +191,3 @@ int  ktest_update_result(const char *file, int line, const char *msg, const char
 uint64_t ktest_setup_hook(const char *caller, const char *file, const int line, const char *tag);
 
 #endif /* EOF */
-
