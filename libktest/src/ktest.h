@@ -124,7 +124,7 @@ struct {
 #define KTEST_SETUP_HOOK(tagname, type, var)                                   \
 {                                                                              \
     if ((kthook.on == true) && (strcmp(kthook.tag, tagname) == 0)) {           \
-        logit("%s", tagname);                                                  \
+        printf(BLU "        Applying Hook: '%s'\n" RST, tagname);              \
         var = (type) ktest_setup_hook(__func__, __FILE__, __LINE__, tagname);  \
     }                                                                          \
 }
